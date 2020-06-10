@@ -1,6 +1,7 @@
 module Api
     module V1
         class AirlinesController < ApplicationController
+            protect_from_forgery with: :null_session
             def index 
                 airlines = Airline.all 
 
@@ -8,7 +9,7 @@ module Api
             end 
 
             def show 
-                airline = Airline.find(slug: params[:slug])
+                airline = Airline.find_by(slug: params[:slug])
 
                 render json: AirlineSerializer.new(airline, option).serialized_json
             end 
@@ -49,7 +50,7 @@ module Api
             end 
 
             def option
-                @option =|| %i[reviews]
+                @option ||= {include: %i[reviews]}
             end 
         end 
     end
