@@ -7,13 +7,26 @@ const Airlines = () => {
 
     useEffect(() => {
         axios.get('/api/v1/airlines.json')
-            .then(res => console.log(res))
+            .then(res => {
+                setAirlines(res.data.data)
+            })
             .catch(res => console.log(res))
     }, [airlines.length])
 
+    const list = airlines.map(item => {
+        return (
+            <li key={item.attributes.name}>{item.attributes.name}</li>
+        )
+    })
+
 
     return (
-        <div>This is our Airlines index component!</div>
+        <Fragment>
+            <div>This is our Airlines index component!</div>
+            <ul>
+                {list}
+            </ul>
+        </Fragment>
     )
 }
 
