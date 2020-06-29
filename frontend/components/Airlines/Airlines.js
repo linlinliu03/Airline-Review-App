@@ -1,5 +1,6 @@
 import React, {useState, useEffect, Fragment} from "react";
 import axios from "axios";
+import Airline from "./Airline";
 
 const Airlines = () => {
     
@@ -8,14 +9,18 @@ const Airlines = () => {
     useEffect(() => {
         axios.get('/api/v1/airlines.json')
             .then(res => {
+                console.log(res)
                 setAirlines(res.data.data)
             })
             .catch(res => console.log(res))
     }, [airlines.length])
 
-    const list = airlines.map(item => {
+    const grid = airlines.map(item => {
         return (
-            <li key={item.attributes.name}>{item.attributes.name}</li>
+            <Airline 
+                key={item.attributes.name}
+                attributes = {item.attributes}
+            />
         )
     })
 
@@ -28,7 +33,7 @@ const Airlines = () => {
             </div>
             <div className="grid">
                 <ul>
-                    {list}
+                    {grid}
                 </ul>
             </div>
         </div>
