@@ -17,6 +17,11 @@ const Header = styled.div`
                 }
              `
 
+const Subheader = styled.div`
+                font-weight: 300;
+                font-size: 26px;
+             `
+
 const Airlines = () => {
     
     const [airlines, setAirlines] = useState([]);
@@ -44,7 +49,7 @@ const Airlines = () => {
         <Home>
             <Header>
                <h1>OpenFlights</h1>
-               <div className="subheader">Honest, unbiased airline reviews.</div>
+               <Subheader>Honest, unbiased airline reviews.</Subheader>
             </Header>
             <div className="grid">
                 <ul>
