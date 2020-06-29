@@ -60,9 +60,7 @@ const Airlines = () => {
                <Subheader>Honest, unbiased airline reviews.</Subheader>
             </Header>
             <Grid>
-                <ul>
-                    {grid}
-                </ul>
+                {grid}
             </Grid>
         </Home>
     )
