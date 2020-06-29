@@ -3,6 +3,20 @@ import axios from "axios";
 import Airline from "./Airline";
 import styled from "styled-components";
 
+const Home = styled.div`
+                text-align: center;
+                max-width: 1200px;
+                margin-left: auto;
+                margin-right: auto;
+             `
+
+const Header = styled.div`
+                padding: 100px, 100px, 10px, 100px;
+                h1{
+                    font-size: 42px;
+                }
+             `
+
 const Airlines = () => {
     
     const [airlines, setAirlines] = useState([]);
@@ -27,17 +41,17 @@ const Airlines = () => {
 
 
     return (
-        <div className="home">
-            <div className="header">
+        <Home>
+            <Header>
                <h1>OpenFlights</h1>
                <div className="subheader">Honest, unbiased airline reviews.</div>
-            </div>
+            </Header>
             <div className="grid">
                 <ul>
                     {grid}
                 </ul>
             </div>
-        </div>
+        </Home>
     )
 }
 
