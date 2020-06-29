@@ -35,7 +35,7 @@ const LinkWrapper = style.div`
                  border-radius: 4px;
                  padding: 10px 50px;
                  border: 1px solid #000;
-                 width: 100%
+                 width: 100%;
                  text-decoration: none;
              }
         `

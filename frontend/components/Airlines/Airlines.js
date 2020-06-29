@@ -36,10 +36,7 @@ const Airlines = () => {
 
     useEffect(() => {
         axios.get('/api/v1/airlines.json')
-            .then(res => {
-                console.log(res)
-                setAirlines(res.data.data)
-            })
+            .then(res => setAirlines(res.data.data))
             .catch(res => console.log(res))
     }, [airlines.length])
 
