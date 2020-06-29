@@ -22,6 +22,14 @@ const Subheader = styled.div`
                 font-size: 26px;
              `
 
+const Grid = styled.div`
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                grid-gap: 20px;
+                width: 100%;
+                padding: 20px;
+             `
+
 const Airlines = () => {
     
     const [airlines, setAirlines] = useState([]);
@@ -51,11 +59,11 @@ const Airlines = () => {
                <h1>OpenFlights</h1>
                <Subheader>Honest, unbiased airline reviews.</Subheader>
             </Header>
-            <div className="grid">
+            <Grid>
                 <ul>
                     {grid}
                 </ul>
-            </div>
+            </Grid>
         </Home>
     )
 }
