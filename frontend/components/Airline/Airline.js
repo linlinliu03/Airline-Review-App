@@ -5,13 +5,17 @@ import Header from "./Header";
 const Airline = (props) => {
     const [airline, setAirline] = useState({});
     const [reviews, setReviews] = useState({});
+    const [loaded, setLoaded] = useState(false);
 
     useEffect(() => {
        const slug = props.match.params.slug;
        const url = `/api/v1/airlines/${slug}`;
 
        axios.get(url)
-            .then(response => setAirline(response.data))
+            .then(response => {
+                setAirline(response.data);
+                setLoaded(true);
+            })
             .catch(error => console.log(error))
     //    console.log(airline)
     }, [])
@@ -19,7 +23,11 @@ const Airline = (props) => {
     return (
         <div className="wrapper">
             <div className="column">
-                <Header />
+                {loaded&&
+                    <Header 
+                       attributes = {airline.data.attributes}
+                    />
+                } 
                 <div className="reviews"></div>
             </div>
             <div className="column">
