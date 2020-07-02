@@ -26,6 +26,7 @@ const Airline = (props) => {
                 {loaded&&
                     <Header 
                        attributes = {airline.data.attributes}
+                       reviews = {airline.include}
                     />
                 } 
                 <div className="reviews"></div>
