@@ -15,9 +15,9 @@ const Airline = (props) => {
             .then(response => {
                 setAirline(response.data);
                 setLoaded(true);
+                console.log(response)
             })
             .catch(error => console.log(error))
-    //    console.log(airline)
     }, [])
 
     return (
@@ -26,7 +26,7 @@ const Airline = (props) => {
                 {loaded&&
                     <Header 
                        attributes = {airline.data.attributes}
-                       reviews = {airline.include}
+                       reviews = {airline.included}
                     />
                 } 
                 <div className="reviews"></div>
