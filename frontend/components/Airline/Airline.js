@@ -28,7 +28,7 @@ const Main = style.div`
 
 const Airline = (props) => {
     const [airline, setAirline] = useState({});
-    const [reviews, setReviews] = useState({});
+    const [review, setReview] = useState({});
     const [loaded, setLoaded] = useState(false);
 
     useEffect(() => {
@@ -37,12 +37,36 @@ const Airline = (props) => {
 
        axios.get(url)
             .then(response => {
+                console.log(response)
                 setAirline(response.data);
                 setLoaded(true);
-                console.log(response)
             })
             .catch(error => console.log(error))
     }, [])
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        const csrfToken = document.querySelector("[name=csrf-token]").content;
+
+        axios.defaults.headers.common['X-CSRF-TOKEN'] = csrfToken;
+
+        const airline_id = airline.data.id;
+        axios.post("/api/v1/reviews", {review, airline_id})
+             .then(resp => {
+                 const included = [...airline.included, resp.data.data]
+                 setAirline({...airline,included})
+                 console.log(resp)
+                 setReview({title:"", description:"", score:0})
+             })
+             .catch(error => console.log(error))
+    }
+
+    const handleChange = (e) => {
+        e.preventDefault();
+
+        setReview(Object.assign({}, review, {[e.target.name]:e.target.value}))
+    }
 
     return (
         <Wrapper>
@@ -58,7 +82,12 @@ const Airline = (props) => {
                  </Main>
               </Column>
               <Column>
-                    <ReviewForm />
+                    <ReviewForm 
+                       handleChange = {handleChange}
+                       handleSubmit = {handleSubmit}
+                       attributes = {airline.data.attributes}
+                       review = {review}
+                    />
               </Column>
           </Fragment>
           } 
