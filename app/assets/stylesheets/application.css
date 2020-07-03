@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
+html, body, #root{
+    height: 100vh;
+}

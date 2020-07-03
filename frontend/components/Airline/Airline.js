@@ -9,6 +9,7 @@ const Wrapper = style.div`
           margin-right: auto;
           display: grid;
           grid-template-columns: repeat(2, 1fr);
+          height: 100%;
 `
 
 const Column = style.div`
