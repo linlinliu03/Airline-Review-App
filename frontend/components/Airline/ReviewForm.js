@@ -1,6 +1,16 @@
-import React from "react";
+import React, {Fragment} from "react";
+
 
 const ReviewForm = (props) => {
+    const ratingScore = [5,4,3,2,1].map((score, idx) => {
+        return(
+            <Fragment>
+                <input type="radio" value={score} name="rating" onChange={() => console.log(score)} id={`rating-${score}`} />
+                <label></label>
+            </Fragment>
+        )
+        
+    })
     return (
         <div className="Wrapper">
            <form onSubmit={props.handleSubmit}>
@@ -14,7 +24,7 @@ const ReviewForm = (props) => {
                 <div className="field">
                     <div className="rating-container">
                          <div className="rating-title-text">Rate This Airline</div>
-                         [Star Rating Goes Here]
+                         {ratingScore}
                     </div>
                 </div>
                <button type="submit">Submit Your Review</button>
