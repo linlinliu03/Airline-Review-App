@@ -68,6 +68,10 @@ const Airline = (props) => {
         setReview(Object.assign({}, review, {[e.target.name]:e.target.value}))
     }
 
+    const setRating = (score, e) => {
+
+    }
+
     return (
         <Wrapper>
           {loaded && 
@@ -85,6 +89,7 @@ const Airline = (props) => {
                     <ReviewForm 
                        handleChange = {handleChange}
                        handleSubmit = {handleSubmit}
+                       setRating = {setRating}
                        attributes = {airline.data.attributes}
                        review = {review}
                     />
