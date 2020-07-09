@@ -69,7 +69,7 @@ const Airline = (props) => {
     }
 
     const setRating = (score, e) => {
-
+       setReview({...review, score})
     }
 
     return (
