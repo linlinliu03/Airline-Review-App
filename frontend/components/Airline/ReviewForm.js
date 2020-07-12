@@ -18,6 +18,7 @@ const RatingBox = style.div`
              overflow: hidden;
              flex-direction: row-reverse;
              position: relative;
+             margin-top: 12px;
              input { display: none; }
              label {
                cursor: pointer;
@@ -49,8 +50,9 @@ const Field = style.div`
                min-height: 50px;
                border-radius: 4px;
                border: 1px solid #e6e6e6;
-               margin: 12px 0;
+               margin: 0 0 12px 0;
                padding: 12px;
+               width: 96%;
              }
 
              textarea{
@@ -65,8 +67,10 @@ const Field = style.div`
 
 
 const Wrapper = style.div`
-             background: #fff;
+             background: #000;
              padding: 20px;
+             height: 100vh;
+             padding-top: 100px;
 `
 
 const SubmitBtn = style.div`
@@ -77,11 +81,14 @@ const SubmitBtn = style.div`
              font-size: 18px;
              cursor: pointer;
              transition: ease-in-out 0.1s;
-             border: 1px solid #333;
+             border: 1px solid #fff;
+             width: 96%;
+             margin-top: 20px;
+             text-align: center;
 
              &:hover{
                background: #fff;
-               color: #333;
+               color: #000;
                border: 1px solid #fff;
              }
 
@@ -89,8 +96,9 @@ const SubmitBtn = style.div`
 
 const Headline = style.div`
            padding: 20px;
-           font-size: 20px;
+           font-size: 30px;
            font-weight: bold;  
+           color: #fff;
 `
 
 const RatingTitle = style.div`
