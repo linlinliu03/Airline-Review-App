@@ -64,7 +64,10 @@ const Field = style.div`
 `
 
 
-
+const Wrapper = style.div`
+             background: #fff;
+             padding: 20px;
+`
 
 
 const ReviewForm = (props) => {
@@ -78,7 +81,7 @@ const ReviewForm = (props) => {
         
     })
     return (
-        <div className="Wrapper">
+        <Wrapper>
            <form onSubmit={props.handleSubmit}>
                <div>Have an experience with {props.attributes.name}? Share your review!</div>
                <Field>
@@ -97,7 +100,7 @@ const ReviewForm = (props) => {
                 </Field>
                <button type="submit">Submit Your Review</button>
            </form>
-        </div>
+        </Wrapper>
     )
 }
 
