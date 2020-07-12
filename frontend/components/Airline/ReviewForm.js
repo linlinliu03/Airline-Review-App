@@ -93,6 +93,11 @@ const Headline = style.div`
            font-weight: bold;  
 `
 
+const RatingTitle = style.div`
+           font-size: 20px;
+           padding-bottom: 20px;
+           font-weight: bold;
+`
 
 const ReviewForm = (props) => {
     const ratingScore = [5,4,3,2,1].map((score, idx) => {
@@ -116,7 +121,7 @@ const ReviewForm = (props) => {
                 </Field>
                 <Field>
                     <RatingContainer>
-                         <div className="rating-title-text">Rate This Airline</div>
+                         <RatingTitle className="rating-title-text">Rate This Airline</RatingTitle>
                          <RatingBox>
                             {ratingScore}
                          </RatingBox>
