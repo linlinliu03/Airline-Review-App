@@ -69,6 +69,24 @@ const Wrapper = style.div`
              padding: 20px;
 `
 
+const SubmitBtn = style.div`
+             color: #fff;
+             background: #333;
+             border-radius: 4px;
+             padding: 12px;
+             font-size: 18px;
+             cursor: pointer;
+             transition: ease-in-out 0.1s;
+             border: 1px solid #333;
+
+             &:hover{
+               background: #fff;
+               color: #333;
+               border: 1px solid #fff;
+             }
+
+`
+
 
 const ReviewForm = (props) => {
     const ratingScore = [5,4,3,2,1].map((score, idx) => {
@@ -98,7 +116,7 @@ const ReviewForm = (props) => {
                          </RatingBox>
                     </RatingContainer>
                 </Field>
-               <button type="submit">Submit Your Review</button>
+          <SubmitBtn type="submit">Submit Your Review</SubmitBtn>
            </form>
         </Wrapper>
     )
