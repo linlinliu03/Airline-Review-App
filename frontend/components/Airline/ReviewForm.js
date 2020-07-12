@@ -87,6 +87,12 @@ const SubmitBtn = style.div`
 
 `
 
+const Headline = style.div`
+           padding: 20px;
+           font-size: 20px;
+           font-weight: bold;  
+`
+
 
 const ReviewForm = (props) => {
     const ratingScore = [5,4,3,2,1].map((score, idx) => {
@@ -101,7 +107,7 @@ const ReviewForm = (props) => {
     return (
         <Wrapper>
            <form onSubmit={props.handleSubmit}>
-               <div>Have an experience with {props.attributes.name}? Share your review!</div>
+               <Headline>Have an experience with {props.attributes.name}? Share your review!</Headline>
                <Field>
                   <input onChange = {props.handleChange} value={props.review.title} type="text" name="title" placeholder="Review Title"/>
                </Field>
