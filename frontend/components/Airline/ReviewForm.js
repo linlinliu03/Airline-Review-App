@@ -73,7 +73,7 @@ const Wrapper = style.div`
              padding-top: 100px;
 `
 
-const SubmitBtn = style.div`
+const SubmitBtn = style.button`
              color: #fff;
              background: #333;
              border-radius: 4px;
@@ -110,8 +110,8 @@ const RatingTitle = style.div`
 const ReviewForm = (props) => {
     const ratingScore = [5,4,3,2,1].map((score, idx) => {
         return(
-            <Fragment>
-                <input type="radio" value={score} checked = {props.review.score === score} name="rating" onChange={() => console.log(score)} id={`rating-${score}`} />
+            <Fragment key = {score}>
+                <input type="radio" value={score} checked={props.review.score === score} name="rating" onChange={() => console.log('onChange')} id={`rating-${score}`} />
                 <label onClick={props.setRating.bind(this,score)}></label>
             </Fragment>
         )
@@ -122,10 +122,10 @@ const ReviewForm = (props) => {
            <form onSubmit={props.handleSubmit}>
                <Headline>Have an experience with {props.attributes.name}? Share your review!</Headline>
                <Field>
-                  <input onChange = {props.handleChange} value={props.review.title} type="text" name="title" placeholder="Review Title"/>
+                  <input onChange = {props.handleChange} value={props.review.title||""} type="text" name="title" placeholder="Review Title"/>
                </Field>
                 <Field>
-                  <input onChange={props.handleChange} value={props.review.description} type="text" name="description" placeholder="Review Description" />
+                  <input onChange={props.handleChange} value={props.review.description||""} type="text" name="description" placeholder="Review Description" />
                 </Field>
                 <Field>
                     <RatingContainer>
@@ -135,7 +135,7 @@ const ReviewForm = (props) => {
                          </RatingBox>
                     </RatingContainer>
                 </Field>
-          <SubmitBtn type="submit">Submit Your Review</SubmitBtn>
+             <SubmitBtn type="submit">Submit Your Review</SubmitBtn>
            </form>
         </Wrapper>
     )

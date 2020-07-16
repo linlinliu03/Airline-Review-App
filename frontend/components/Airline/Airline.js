@@ -37,14 +37,15 @@ const Airline = (props) => {
 
        axios.get(url)
             .then(response => {
-                console.log(response)
                 setAirline(response.data);
+                console.log(response)
                 setLoaded(true);
             })
             .catch(error => console.log(error))
     }, [])
 
     const handleSubmit = (e) => {
+        console.log("hi")
         e.preventDefault();
 
         const csrfToken = document.querySelector("[name=csrf-token]").content;
@@ -88,7 +89,7 @@ const Airline = (props) => {
               <Column>
                     <ReviewForm 
                        handleChange = {handleChange}
-                       handleSubmit = {handleSubmit}
+                       handleSubmit={handleSubmit}
                        setRating = {setRating}
                        attributes = {airline.data.attributes}
                        review = {review}
